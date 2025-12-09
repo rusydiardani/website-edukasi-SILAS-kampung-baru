@@ -41,12 +41,45 @@ body {
 
 .logo h1 { font-size: 1.8em; color: var(--color-primary); }
 .logo .highlight { color: var(--color-secondary); }
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+    background-color: transparent;
+    border: none;
+}
+
+.menu-toggle span {
+    width: 22px;
+    height: 2.5px;
+    background-color: var(--color-primary);
+    margin: 2.5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 .main-nav ul { list-style: none; display: flex; }
 .main-nav ul li a { text-decoration: none; color: var(--color-text); padding: 8px 15px; transition: background-color 0.3s; border-radius: 4px; font-weight: 500; }
 .main-nav ul li a:hover { color: var(--color-white); background-color: var(--color-primary); }
 
 /* -------------------- MAIN CONTENT & SECTIONS -------------------- */
-main { padding-bottom: 50px; }
+main { padding-bottom: 0; }
 .clean-bg { background-color: var(--color-light-bg); }
 .primary-bg { background-color: var(--color-primary); }
 .text-white { color: var(--color-white); }
@@ -109,7 +142,7 @@ main { padding-bottom: 50px; }
 .alert.error { background-color: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB; }
 
 /* -------------------- FOOTER -------------------- */
-.main-footer { background-color: var(--color-text); color: var(--color-light-bg); text-align: center; padding: 20px; font-size: 0.9em; margin-top: 30px; }
+.main-footer { background-color: var(--color-text); color: var(--color-light-bg); text-align: center; padding: 20px; font-size: 0.9em; margin-top: 0; }
 .main-footer a { color: var(--color-primary); text-decoration: none; }
 
 /* -------------------- SCROLL TO TOP BUTTON STYLE -------------------- */
@@ -138,12 +171,347 @@ main { padding-bottom: 50px; }
 }
 
 /* -------------------- MEDIA QUERIES (RESPONSIVE) -------------------- */
+
+/* Tablet & Mobile Landscape (max-width: 900px) */
 @media (max-width: 900px) {
-    .main-header { flex-direction: column; }
-    .main-nav ul { flex-direction: column; text-align: center; width: 100%; margin-top: 10px; }
-    .main-nav ul li a { display: block; margin: 5px 0; }
-    .info-blocks { flex-direction: column; padding: 0 15px; }
-    .edukasi-item { flex-direction: column !important; gap: 20px; margin-bottom: 50px; }
+    .main-header { 
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px 5%;
+    }
+    
+    .logo h1 { 
+        font-size: 1.4em;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .main-nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .main-nav.active {
+        max-height: 250px;
+    }
+    
+    .main-nav ul { 
+        flex-direction: column; 
+        text-align: left; 
+        width: 100%; 
+        padding: 5px 0;
+    }
+    
+    .main-nav ul li a { 
+        display: block; 
+        margin: 0; 
+        padding: 10px 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    .hero {
+        padding: 60px 5%;
+    }
+    
+    .hero h2 {
+        font-size: 1.8em;
+    }
+    
+    .info-blocks { 
+        flex-direction: column; 
+        padding: 0 15px; 
+    }
+    
+    .card {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .edukasi-item { 
+        flex-direction: column !important; 
+        gap: 20px; 
+        margin-bottom: 50px; 
+        padding: 20px 0;
+    }
+    
+    .edukasi-visual {
+        max-width: 100%;
+    }
+    
+    .page-intro {
+        padding: 40px 15px;
+    }
+    
+    .page-intro h2 {
+        font-size: 1.8em;
+    }
+    
+    .report-form {
+        padding: 30px 20px;
+        margin: 20px 15px;
+    }
+    
+    .btn-report-critical {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}
+
+/* Mobile Portrait (max-width: 600px) */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .main-header {
+        padding: 10px 5%;
+    }
+    
+    .logo h1 { 
+        font-size: 1.2em; 
+    }
+    
+    .main-nav {
+        top: 50px;
+    }
+    
+    .main-nav.active {
+        max-height: 220px;
+    }
+    
+    .main-nav ul li a { 
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    
+    .hero {
+        padding: 40px 5%;
+        margin-bottom: 20px;
+    }
+    
+    .hero h2 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+    
+    .hero p {
+        font-size: 0.95em;
+    }
+    
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+    
+    .info-blocks {
+        padding: 0 10px;
+        gap: 15px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .card h3 {
+        font-size: 1.2em;
+    }
+    
+    .page-intro {
+        padding: 30px 10px;
+    }
+    
+    .page-intro h2 {
+        font-size: 1.5em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+    }
+    
+    .edukasi-poin-list {
+        padding: 20px 0;
+    }
+    
+    .edukasi-item {
+        margin-bottom: 30px;
+    }
+    
+    .edukasi-item:last-child {
+        margin-bottom: 10px;
+    }
+    
+    .edukasi-content {
+        padding: 10px;
+    }
+    
+    .edukasi-content h3 {
+        font-size: 1.4em;
+    }
+    
+    .edukasi-content p {
+        font-size: 0.95em;
+    }
+    
+    .detail-box {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+    
+    .search-bar {
+        padding: 20px 10px;
+    }
+    
+    .search-bar h3 {
+        font-size: 1.1em;
+    }
+    
+    #search-sampah {
+        padding: 10px;
+        font-size: 1em;
+    }
+    
+    /* Table Responsive */
+    .schedule-table {
+        padding: 10px 0;
+        overflow-x: auto;
+    }
+    
+    .schedule-table table {
+        font-size: 0.85em;
+    }
+    
+    .schedule-table th,
+    .schedule-table td {
+        padding: 10px 8px;
+    }
+    
+    .schedule-table .jenis-sampah .label {
+        font-size: 0.8em;
+        padding: 4px 8px;
+    }
+    
+    /* Form Responsive */
+    .report-form {
+        padding: 25px 15px;
+        margin: 15px 10px;
+    }
+    
+    .report-form h3 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    .report-form input[type="text"],
+    .report-form input[type="file"],
+    .report-form textarea {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    
+    .btn-whatsapp {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    
+    .btn-whatsapp i {
+        font-size: 1.1em;
+    }
+    
+    .action-call {
+        padding: 30px 15px;
+    }
+    
+    .action-call h3 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+    
+    .action-call p {
+        font-size: 0.95em;
+        margin-bottom: 15px;
+    }
+    
+    /* Scroll to top button */
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    /* Footer */
+    .main-footer {
+        padding: 15px 10px;
+        font-size: 0.85em;
+        margin-top: 20px;
+    }
+    
+    .social-links {
+        margin-top: 8px;
+        font-size: 0.9em;
+    }
+    
+    .action-call {
+        padding: 25px 15px;
+    }
+}
+
+/* Extra Small Mobile (max-width: 400px) */
+@media (max-width: 400px) {
+    .logo h1 { 
+        font-size: 1.1em; 
+    }
+    
+    .hero h2 {
+        font-size: 1.2em;
+    }
+    
+    .page-intro h2 {
+        font-size: 1.3em;
+    }
+    
+    .edukasi-content h3 {
+        font-size: 1.2em;
+    }
+    
+    .btn-report-critical {
+        font-size: 0.9em;
+        padding: 8px 20px;
+    }
+    
+    .schedule-table table {
+        font-size: 0.75em;
+    }
+    
+    .schedule-table th,
+    .schedule-table td {
+        padding: 8px 5px;
+    }
 }
 
 
@@ -187,8 +555,7 @@ main { padding-bottom: 50px; }
 
 /* Gaya untuk section action-call */
 .action-call {
-    /* Tambahkan padding vertikal yang lebih besar */
-    padding: 30px 0 50px 0; /* Atas 30px, Bawah 50px */
+    padding: 40px 20px;
     text-align: center;
 }
 

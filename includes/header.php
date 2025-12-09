@@ -14,7 +14,12 @@
     <div class="logo">
         <h1>Kampung Baru <span class="highlight">Bersih</span></h1>
     </div>
-    <nav class="main-nav">
+    <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="main-nav" id="main-nav">
         <ul>
             <li><a href="/webedukasi/index.php">Beranda</a></li>
             <li><a href="/webedukasi/edukasi.php">Edukasi & Pemilahan</a></li>

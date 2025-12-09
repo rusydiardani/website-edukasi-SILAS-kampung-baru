@@ -1,0 +1,20 @@
+# Vendor (Composer dependencies)
+/vendor/
+
+# Composer files
+composer.lock
+
+# Email configuration (contains sensitive credentials)
+config/email_config.php
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded files
+uploads/
+*.log

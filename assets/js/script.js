@@ -107,9 +107,41 @@ const topFunction = () => {
 }
 
 
+// 4. FUNGSI MOBILE MENU TOGGLE
+const initializeMobileMenu = () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (!mobileMenu || !mainNav) return;
+    
+    mobileMenu.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !mainNav.contains(e.target)) {
+            mainNav.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    });
+};
+
+
 // INI ADALAH FUNGSI UTAMA YANG BERJALAN KETIKA HALAMAN SELESAI DIMUAT
 document.addEventListener('DOMContentLoaded', () => {
     initializeSearch(); // Aktifkan fitur pencarian
+    initializeMobileMenu(); // Aktifkan mobile menu
 
     const mybutton = document.getElementById("scrollToTopBtn");
     if (mybutton) {
