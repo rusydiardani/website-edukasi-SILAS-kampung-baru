@@ -1,7 +1,7 @@
 <?php
-    // index.php
-    include 'data/content.php';
-    include 'includes/header.php';
+// index.php
+include 'data/content.php';
+include 'includes/header.php';
 ?>
 
 <section class="hero">
@@ -35,5 +35,5 @@
 
 
 <?php
-    include 'includes/footer.php';
+include 'includes/footer.php';
 ?>
