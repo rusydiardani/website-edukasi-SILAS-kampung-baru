@@ -18,6 +18,9 @@ body {
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .container {
@@ -79,7 +82,10 @@ body {
 .main-nav ul li a:hover { color: var(--color-white); background-color: var(--color-primary); }
 
 /* -------------------- MAIN CONTENT & SECTIONS -------------------- */
-main { padding-bottom: 0; }
+main { 
+    padding-bottom: 0;
+    flex: 1;
+}
 .clean-bg { background-color: var(--color-light-bg); }
 .primary-bg { background-color: var(--color-primary); }
 .text-white { color: var(--color-white); }
@@ -93,7 +99,7 @@ main { padding-bottom: 0; }
 .btn-secondary:hover { background-color: var(--color-light-bg); color: var(--color-primary); }
 
 /* Quick Action (Index) */
-.quick-action-bar { padding: 20px 0; background-color: var(--color-light-bg); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); }
+.quick-action-bar { padding: 20px 0 40px 0; background-color: var(--color-light-bg); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); }
 .btn-report-critical { background-color: #FF5722; color: var(--color-white); font-size: 1.2em; padding: 12px 35px; border-radius: 8px; transition: background-color 0.3s; }
 .btn-report-critical:hover { background-color: #E64A19; }
 
@@ -102,7 +108,7 @@ main { padding-bottom: 0; }
 .hero h2 { font-size: 2.5em; margin-bottom: 15px; }
 
 /* Info Blocks (Home Cards) */
-.info-blocks { display: flex; justify-content: space-around; gap: 20px; padding: 0 5%; flex-wrap: wrap; }
+.info-blocks { display: flex; justify-content: space-around; gap: 20px; padding: 0 5% 40px 5%; flex-wrap: wrap; margin-bottom: 30px; }
 .card { flex: 1; min-width: 280px; background-color: var(--color-white); padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-left: 5px solid var(--color-primary); transition: transform 0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
 .card h3 { color: var(--color-primary); margin-bottom: 10px; }
@@ -516,7 +522,7 @@ main { padding-bottom: 0; }
 
 
 /* -------------------- JADWAL PAGE STYLES -------------------- */
-.schedule-table { padding: 20px 0; }
+.schedule-table { padding: 20px 0 60px 0; }
 
 .schedule-table table {
     width: 100%;
@@ -555,7 +561,7 @@ main { padding-bottom: 0; }
 
 /* Gaya untuk section action-call */
 .action-call {
-    padding: 40px 20px;
+    padding: 40px 20px 60px 20px;
     text-align: center;
 }
 
